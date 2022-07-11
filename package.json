@@ -3,12 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.6",
-    "@testing-library/react": "^11.2.2",
-    "@testing-library/user-event": "^12.5.0",
     "bulma": "^0.9.3",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
+    "prop-types": "^15.8.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "react-rater": "^6.0.1",
     "react-scripts": "4.0.1",
     "web-vitals": "^0.2.4"
@@ -36,5 +34,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "jest": "^26.6.0",
+    "jest-enzyme": "^7.1.2"
   }
 }
