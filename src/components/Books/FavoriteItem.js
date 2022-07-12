@@ -1,3 +1,5 @@
+import React from "react";
+
 const FavoriteItem = (props) => {
   const postFavorite = (book_id) => {
     const requestOptions = {
@@ -24,6 +26,7 @@ const FavoriteItem = (props) => {
 
   return (
     <button
+      data-test="FavoriteItemComponent"
       className={!props.is_favorite ? "button is-primary" : "button is-danger"}
       onClick={() => {
         if (!props.is_favorite) {

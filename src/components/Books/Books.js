@@ -1,12 +1,20 @@
+import React from "react";
+
 import BookItem from "../Books/BookItem";
 
 const Books = (props) => {
+  const { items, onRefreshHandler } = props;
+
+  if (!items) {
+    return null;
+  }
+
   return (
-    <div className="card p-3">
+    <div className="card p-3" data-test="BooksComponent">
       <p className="title is-4">List of Books</p>
       <div className="columns is-desktop is-multiline">
-        {props.items.length > 0 ? (
-          props.items.map((item, index) => (
+        {items.length > 0 ? (
+          items.map((item, index) => (
             <BookItem
               key={index}
               id={item.id}
@@ -15,11 +23,14 @@ const Books = (props) => {
               rating={item.rating}
               author={item.author}
               thumbnail={item.thumbnail}
-              onRefreshHandler={(value) => props.onRefreshHandler(value)}
+              onRefreshHandler={(value) => onRefreshHandler(value)}
             />
           ))
         ) : (
-          <div className="container is-fullheight p-2">
+          <div
+            className="container is-fullheight p-2"
+            data-test="NoDataComponent"
+          >
             <p className="subtitle">Tidak ada data</p>
           </div>
         )}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 const SearchForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
@@ -16,7 +16,7 @@ const SearchForm = (props) => {
 
   return (
     <div>
-      <div className="field is-half">
+      <div className="field is-half" data-test="SearchFormComponent">
         <label className="label">Keyword</label>
         <div className="control">
           <input

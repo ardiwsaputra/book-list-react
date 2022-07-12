@@ -1,3 +1,5 @@
+import React from "react";
+
 import SearchForm from "./SearchForm";
 
 const SearchBook = (props) => {
@@ -6,7 +8,7 @@ const SearchBook = (props) => {
   };
 
   return (
-    <div className="box">
+    <div className="box" data-test="SearchBookComponent">
       <p className="title is-4">Searching</p>
       <SearchForm onSearchBookData={saveBookDataHandler} />
     </div>
