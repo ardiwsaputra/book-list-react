@@ -10,24 +10,44 @@ const setUp = (props = {}) => {
 
 describe("Component -> Books", () => {
   describe("Have Props", () => {
-    let component;
-    beforeEach(() => {
-      const props = [
-        {
-          id: "abcdefg",
-          title: "Judul Buku",
-          author: ["Author"],
-          thumbnail: "https://bulma.io/images/placeholders/96x96.png",
-          rating: 5,
-          is_favorite: true,
-        },
-      ];
-      component = setUp(props);
-    });
+    describe("With Items", () => {
+      let component;
+      beforeEach(() => {
+        const props = {
+          items: [
+            {
+              id: "abcdefg",
+              title: "Judul Buku",
+              author: ["Author"],
+              thumbnail: "https://bulma.io/images/placeholders/96x96.png",
+              rating: 5,
+              is_favorite: true,
+            },
+          ],
+          onRefreshHandler: () => {},
+        };
+        component = setUp(props);
+      });
 
-    it("Should render without errors", () => {
-      const wrapper = findByTestAtrr(component, "BooksComponent");
-      expect(wrapper.length).toBe(1);
+      it("Should render without errors", () => {
+        const wrapper = findByTestAtrr(component, "BooksComponent");
+        expect(wrapper.length).toBe(1);
+      });
+    });
+    describe("No Items", () => {
+      let component;
+      beforeEach(() => {
+        const props = {
+          items: [],
+          onRefreshHandler: () => {},
+        };
+        component = setUp(props);
+      });
+
+      it("Should render without errors", () => {
+        const wrapper = findByTestAtrr(component, "NoDataComponent");
+        expect(wrapper.length).toBe(1);
+      });
     });
   });
 

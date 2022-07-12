@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import SharedButton from "../SharedButton/SharedButton";
 
 const SearchForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
@@ -6,12 +7,18 @@ const SearchForm = (props) => {
     setEnteredTitle(event.target.value);
   };
 
-  const submitHandler = (event) => {
+  const submitHandler = () => {
     const bookData = {
       title: enteredTitle,
     };
 
     props.onSearchBookData(bookData);
+  };
+
+  const configButtonSearch = {
+    btnText: `Search`,
+    btnColor: "primary",
+    btnEmitEvent: submitHandler,
   };
 
   return (
@@ -20,6 +27,7 @@ const SearchForm = (props) => {
         <label className="label">Keyword</label>
         <div className="control">
           <input
+            data-test="InputKeyword"
             className="input"
             type="text"
             value={enteredTitle}
@@ -28,14 +36,7 @@ const SearchForm = (props) => {
         </div>
       </div>
       <div className="field">
-        <button
-          type="submit"
-          className="button is-primary"
-          disabled={enteredTitle === ""}
-          onClick={submitHandler}
-        >
-          Search
-        </button>
+        <SharedButton disabled={enteredTitle === ""} {...configButtonSearch} />
       </div>
     </div>
   );

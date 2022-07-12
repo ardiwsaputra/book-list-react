@@ -3,7 +3,7 @@ import React from "react";
 import BookItem from "../Books/BookItem";
 
 const Books = (props) => {
-  const { items, onRefreshHandler } = props;
+  const { items, keywords } = props;
 
   if (!items) {
     return null;
@@ -23,7 +23,7 @@ const Books = (props) => {
               rating={item.rating}
               author={item.author}
               thumbnail={item.thumbnail}
-              onRefreshHandler={(value) => onRefreshHandler(value)}
+              keywords={keywords}
             />
           ))
         ) : (

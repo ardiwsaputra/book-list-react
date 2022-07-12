@@ -1,25 +1,27 @@
 import React from "react";
 import { shallow } from "enzyme";
-import SearchBook from "./SearchBook";
+import SharedButton from "./SharedButton";
 import { findByTestAtrr } from "../../../utils";
 
 const setUp = (props = {}) => {
-  const component = shallow(<SearchBook {...props} />);
+  const component = shallow(<SharedButton {...props} />);
   return component;
 };
 
-describe("Component -> SearchBook", () => {
+describe("Component -> SharedButton", () => {
   describe("Have Props", () => {
     let component;
     beforeEach(() => {
       const props = {
-        searchBook: () => {},
+        btnText: "Text",
+        btnColor: "primary",
+        btnEmitEvent: () => {},
       };
       component = setUp(props);
     });
 
     it("Should render without errors", () => {
-      const wrapper = findByTestAtrr(component, "SearchBookComponent");
+      const wrapper = findByTestAtrr(component, "SharedButton");
       expect(wrapper.length).toBe(1);
     });
   });

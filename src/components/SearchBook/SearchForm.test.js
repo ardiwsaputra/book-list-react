@@ -18,4 +18,9 @@ describe("Component -> SearchForm", () => {
     const wrapper = findByTestAtrr(component, "SearchFormComponent");
     expect(wrapper.length).toBe(1);
   });
+
+  it("Should render InputKeyword without errors", () => {
+    const wrapper = findByTestAtrr(component, "InputKeyword");
+    expect(wrapper.length).toBe(1);
+  });
 });
